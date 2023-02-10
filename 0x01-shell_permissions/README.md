@@ -16,3 +16,5 @@
 12-directory_permissions:	-script that creates a directory called my_dir with permissions 751 in the working dire	    	       	     	       	   ctory.
 13-change_group:		-script that changes the group owner to school for the file hello
 100-change_owner_and_group:	-Write a script that changes the owner to vincent and the group owner to staff for all					the files and directories in the working directory.
+101-symbolic_link_permissions:	-script that changes the owner and the group owner of _hello to vincent and staff resp					ectively.
+102-if_only:			-script that changes the owner of the file hello to betty only if it is owned by the us					er guillaume.
