@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lR ./ | wc -l
+find -mindepht 1 | wc -l
