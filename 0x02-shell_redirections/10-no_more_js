@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lR | rm *.js
+find ./ type f -name "*.js" -exec rm 
