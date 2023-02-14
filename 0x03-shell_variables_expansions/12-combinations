@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..z}-{a..z} | tr 'oo'
+echo {a..z}-{a..z} | egrep -v "oo" | tr " " "\n"
