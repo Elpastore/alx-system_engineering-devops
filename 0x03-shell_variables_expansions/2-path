@@ -1,2 +1,2 @@
 #!/bin/bash
-echo :/action >> PATH | cat PATH
+echo ":/action" >> PATH | cat PATH
