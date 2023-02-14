@@ -1,2 +1,2 @@
 #!/bin/bash
-set; declare -F
+set | declare -F
