@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(($(printf "%bestchol" "water$WATER")+$(printf "%bestchol" "stir$STIR"))) | awk -f convert.awk
+echo $(($(printf "%0bestchol" "0water$WATER")+$(printf "%0bestchol" "0stir$STIR")))
