@@ -31,3 +31,4 @@
 				       One file name per line
 				       The listing should end with a new line
 				       You are not allowed to use basename, grep, egrep, fgrep or rgrep
+16-whatsnext:			-Display lines containing the pattern “root” and 3 lines after them in the file /etc/passwd.
