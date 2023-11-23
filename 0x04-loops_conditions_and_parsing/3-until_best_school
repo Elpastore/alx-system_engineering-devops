@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Print 10 time Best School
+counter=1
+until [ $counter -gt 10 ]; do
+	echo "Best School"
+	((counter++))
+done
