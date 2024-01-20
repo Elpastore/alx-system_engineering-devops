@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# ssh configuraiton using puppet
+# SSH configuration using Puppet
 
-file { 'ect/ssh/ssh_config':
+file { '/etc/ssh/ssh_config':
   ensure  => present,
   content => "
-	
-	#SSH client configuration
-	host*
-	IdentyFile ~/.ssh/school
-	PasswordAuthentication no",
+    # SSH client configuration
+    Host *
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+  ",
 }
+
