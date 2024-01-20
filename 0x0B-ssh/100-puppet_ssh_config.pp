@@ -7,6 +7,6 @@ file { 'ect/ssh/ssh_config':
 	
 	#SSH client configuration
 	host*
-	IdentifFile ~/.ssh/school
+	IdentyFile ~/.ssh/school
 	PasswordAuthentication no",
 }
