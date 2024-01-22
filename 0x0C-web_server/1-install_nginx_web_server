@@ -7,9 +7,10 @@ sudo apt-get -y install nginx
 
 # enabe the most restrictive profile that will allow the traffic
 sudo ufw allow 'Nginx HTTP'
-
+# change the owner to user to allow modification
+sudo chown -R $USER /var/www
 # pass the content
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
 #start nginx
 service nginx start
