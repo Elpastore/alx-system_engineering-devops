@@ -1,4 +1,4 @@
-# Conffiguration of web server using puppet
+# Configuration of web server using puppet
 
 package { 'nginx':
   ensure => installed,
@@ -19,3 +19,4 @@ service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
 }
+
