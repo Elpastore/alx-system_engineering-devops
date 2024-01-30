@@ -10,7 +10,7 @@ sudo apt-get -y update && sudo apt-get -y upgrade
 
 # Configure Load Balancing
 echo "
-frontend haproxynode
+frontend http_front
     bind *:80
     mode http
     default_backend backend_servers
