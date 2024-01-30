@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#Install and Configure HAproxy so that it send traffic to web-01 and web-02
 
 #update your system
 sudo apt-get -y update && sudo apt-get -y upgrade
