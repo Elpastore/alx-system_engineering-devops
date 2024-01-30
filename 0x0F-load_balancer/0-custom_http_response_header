@@ -34,7 +34,7 @@ fi
 # add  a custom header http
 if ! grep -e "add_header X-Server-By" /etc/nginx/sites-available/default
 then
-        sudo sed -i '/server_name _;/a \ \ \ \ \ \ \ \ add_header X-Server-By $HOSTNAME;' /etc/nginx/sites-available/default
+        sudo sed -i "/server_name _;/a \ \ \ \ \ \ \ \ add_header  X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 fi
 # Test Nginx configuration and restart
 sudo nginx -t && sudo service nginx restart
