@@ -19,8 +19,8 @@ frontend haproxynode
 backend backend_servers
     balance roundrobin
     mode http
-    server 227516-web-01 18.234.105.201 check
-    server 227516-web-02 100.26.162.114 check " | sudo tee -a /etc/haproxy/haproxy.cfg
+    server 227516-web-01 18.234.105.201:80 check
+    server 227516-web-02 100.26.162.114:80 check " | sudo tee -a /etc/haproxy/haproxy.cfg
 
 # restart the HAProxy service
 sudo systemctl restart haproxy
