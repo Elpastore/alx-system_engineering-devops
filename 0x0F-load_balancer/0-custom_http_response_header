@@ -32,7 +32,7 @@ then
 	sudo sed -i "/listen 80 default_server;/c $new_error" /etc/nginx/sites-available/default
 fi
 # add  a custom header http
-if ! grep -e "add_header X-Server-By" /etc/nginx/sites-available/default
+if ! grep -e "add_header X-Served-By" /etc/nginx/sites-available/default
 then
         sudo sed -i "/server_name _;/a \ \ \ \ \ \ \ \ add_header  X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 fi
