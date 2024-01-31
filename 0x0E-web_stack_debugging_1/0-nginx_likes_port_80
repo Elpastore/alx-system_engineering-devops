@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+sudo rm /etc/nginx/nginx.conf
+sudo rm -rf /etc/nginx/
+sudo apt purge nginx
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+service nginx start
