@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# debugging server
+
+# Check if Nginx is already installed
+if command -v nginx &> /dev/null; then
+    echo "Nginx is already installed. Skipping installation."
+    rm /etc/nginx/sites-enabled/default
+    ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+else
+    # Install Nginx
+    sudo apt-get -y update
+    sudo apt-get -y install nginx
+fi
+# restart
+sudo service nginx restart
