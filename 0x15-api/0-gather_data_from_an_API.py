@@ -6,15 +6,26 @@ import requests
 from sys import argv
 
 if __name__ == '__main__':
-    user_Id = argv[1]
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".
-                        format(user_Id), verify=False).json()
-    todo = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}".
-                        format(user_Id), verify=False).json()
-    completed_tasks = []
+
+    # Get the spefific user with id
+    User_id = argv[1]
+    user = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
+                        format(User_id)).json()
+
+    # Get the todo list of the specific userId
+    # request with key=value ===> url+?+key=value
+    # where key is userId and value id
+    # todo  = requests.get(f'https://jsonplaceholder.typicode.com/todos?
+    # userId={id}).json()
+    payload = {'userId': User_id}
+    todo = requests.get('https://jsonplaceholder.typicode.com/todos',
+                        params=payload).json()
+
+    complete_task = []
     for task in todo:
         if task.get('completed') is True:
-            completed_tasks.append(task.get('title'))
+            complete_task.append(task.get('title'))
     print("Employee {} is done with tasks({}/{}):".
-          format(user.get('name'), len(completed_tasks), len(todo)))
-    print("\n".join("\t {}".format(task) for task in completed_tasks))
+          format(user.get('name'), len(complete_task), len(todo)))
+    for complete in complete_task:
+        print(f'\t{complete}')
