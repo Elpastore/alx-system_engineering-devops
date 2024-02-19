@@ -16,7 +16,7 @@ if __name__ == '__main__':
     # request with key=value ===> url+?+key=value
     # where key is userId and value id
     # todo  = requests.get(f'https://jsonplaceholder.typicode.com/todos?
-    # userId={id}',verify=False).json()
+    # userId={id}).json()
     payload = {'userId': User_id}
     todo = requests.get('https://jsonplaceholder.typicode.com/todos',
                         params=payload).json()
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     for task in todo:
         if task.get('completed') is True:
             complete_task.append(task.get('title'))
-    print("Empoyee {} is done with tasks({}/{}):".
+    print("Employee {} is done with tasks({}/{}):".
           format(user.get('name'), len(complete_task), len(todo)))
     for complete in complete_task:
         print(f'\t{complete}')
