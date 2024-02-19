@@ -1,25 +1,29 @@
 #!/usr/bin/python3
-"""eturns information about his/her TODO list progress."""
+"""
+ returns information about his/her TODO list progress.
+"""
 import requests
 from sys import argv
 
+if __name__ == '__main__':
 
-def todo(userid):
-    """doc stringed"""
-    name = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}'.format(
-            userid)).json().get('name')
-    tasks = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
-            userid)).json()
-    tasksDone = ['\t {}\n'.format(dic.get('title')) for dic in tasks
-                 if dic.get('completed')]
-    if name and tasks:
-        print("Employee {} is done with tasks({}/{}):".format
-              (name, len(tasksDone), len(tasks)))
-        print(''.join(tasksDone), end='')
-
-
-if __name__ == "__main__":
     if len(argv) == 2:
-        todo(int(argv[1]))
+        # Get the spefific user with id
+        User_id = int(argv[1])
+        user = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
+                            format(User_id))
+        # Get the todo list of the specific userId
+        payload = {'userId': User_id}
+        todo = requests.get('https://jsonplaceholder.typicode.com/todos',
+                            params=payload)
+        if user.status_code == 200 and todo.status_code == 200:
+            user_request = user.json()
+            todo_request = todo.json()
+            complete_task = []
+            for task in todo_request:
+                if task.get('completed') is True:
+                    complete_task.append(task.get('title'))
+            print("Employee {} is done with tasks({}/{}):".
+                format(user_request.get('name'), len(complete_task), len(todo_request)))
+            for complete in complete_task:
+                print(f'\t {complete}')
