@@ -10,7 +10,7 @@ if __name__ == '__main__':
     # Get the spefific user with id
     User_id = argv[1]
     user = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
-                        format(User_id)).json()
+                        format(User_id), verify=False).json()
 
     # Get the todo list of the specific userId
     # request with key=value ===> url+?+key=value
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     # userId={id}).json()
     payload = {'userId': User_id}
     todo = requests.get('https://jsonplaceholder.typicode.com/todos',
-                        params=payload).json()
+                        params=payload, verify=False).json()
 
     complete_task = []
     for task in todo:
