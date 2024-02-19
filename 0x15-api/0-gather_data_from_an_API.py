@@ -8,9 +8,9 @@ from sys import argv
 if __name__ == '__main__':
     user_Id = argv[1]
     user = requests.get("https://jsonplaceholder.typicode.com/users/{}".
-                        format(user_Id)).json()
+                        format(user_Id), verify=False).json()
     todo = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}".
-                        format(user_Id)).json()
+                        format(user_Id), verify=False).json()
     completed_tasks = []
     for task in todo:
         if task.get('completed') is True:
