@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     """
 
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {'User-Agent': 'Abdoulaye Sadio'}
+    headers = {'User-Agent': 'Elpastore'}
     response = requests.get(url, headers=headers)
 
     if response.status_code == 404:
