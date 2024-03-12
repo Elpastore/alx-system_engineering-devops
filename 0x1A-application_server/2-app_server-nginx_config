@@ -1,0 +1,24 @@
+# Server configuration to serve the route /airbnb-onepage/ from AirBnB_clone_v2.
+server {
+	listen 80 default_server;
+        listen [::]:80 default_server;
+        
+	# Use the IP adress as domain name
+    	server_name 18.234.105.201;
+	
+	# Custome HTTP response header
+        add_header X-Served-By 227516-web-01;
+
+	#  Serve /airbnb-onepage/ on port 80 from process running on port 5000
+        location = /airbnb-onepage/ {
+		proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+	}
+
+	error_page 404 /custom_404.html;
+        location = /custom_404.html {
+                root /var/www/html;
+                internal;
+        }
+
+
+}
